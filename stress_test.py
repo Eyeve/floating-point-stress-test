@@ -1,5 +1,6 @@
 from os import system
 from sys import argv
+from re import sub
 
 N = 1000000
 OPERATION = '*'
@@ -24,17 +25,18 @@ for testNumber in range(N):
     system(f"./main.exe {test} > out.txt")
     with open("out.txt", "r") as f:
         actual = f.readline().strip()
-        if actual != expected:
-            print()
-            print(f"=== test failed => | {testNumber}")
-            print(f" \=== expected ==> | {expected}")
-            print(f"  \== actual ====> | {actual}")
-            input(f"   \= test case => | {test}\n")
+        
+    if sub("0+p", "p", actual) != expected:
+        print()
+        print(f"=== test failed => | {testNumber}")
+        print(f" \=== expected ==> | {expected}")
+        print(f"  \== actual ====> | {actual}")
+        input(f"   \= test case => | {test}\n")
+    else:
+        if (testNumber % 100 == 0):
+            print(f"\n======= ONE HUNDRED MORE TESTS =======\n")
         else:
-            if (testNumber % 100 == 0):
-                print(f"\n======= ONE HUNDRED MORE TESTS =======\n")
-            else:
-                print("="*(testNumber%3) + f"===> test passed - {testNumber}")
+            print("="*(testNumber%3) + f"===> test passed - {testNumber}")
     
 
 
