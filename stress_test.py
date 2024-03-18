@@ -36,7 +36,7 @@ for testNumber in range(N):
     else:
         if (testNumber % 100 == 0):
             print(f"\n======= ONE HUNDRED MORE TESTS =======\n")
-        else:
+        elif (testNumber % 10 == 0):
             print("="*(testNumber%3) + f"===> test passed - {testNumber}")
     
 
