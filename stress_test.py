@@ -23,6 +23,7 @@ for testNumber in range(N):
         expected = f.readline().strip()
 
     system(f"./main.exe {test} > out.txt")
+    test = test.replace("'", "", 2)
     with open("out.txt", "r") as f:
         actual = f.readline().strip()
         
