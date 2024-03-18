@@ -38,6 +38,6 @@ int main(int argsc, char *argv[]) {
             result.f = fp1.f / fp2.f;
             break;
     }
-    printf("f 3 0x%x '%c' 0x%x\n", fp1.i, operation, fp2.i);
+    printf("f 1 0x%x '%c' 0x%x\n", fp1.i, operation, fp2.i);
     printf("%a\n", result.f);
 }
