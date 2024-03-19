@@ -49,23 +49,23 @@ int main(int argsc, char *argv[]) {
     printf("(%f) %c (%f) = (%f)\n", fp1.f, operation, fp2.f, result.f);
 }
 
-float getRandomFloat()
+float randomFloat() {
+    float out = posRandomFloat();
+    return (random() % 2) ? out : -out;
+}
+
+float posRandomFloat()
 {
 	if (random() % 30 == 0) {
-		switch (random() % 5)
+		switch (random() % 3)
 		{
 		case 0:
-			return (float)0;
+			return 0.0;
 		case 1:
 			return NAN;
 		case 2:
-			return -NAN;
-		case 3:
 			return INFINITY;
-		case 4:
-			return -INFINITY;
 		}
 	}
-	float out = (double)random() / (double)random() * rand();
-	return (random() % 2) ? out : -out;
+	return (double)random() / (double)random() * rand();
 }
