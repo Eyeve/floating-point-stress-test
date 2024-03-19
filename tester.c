@@ -46,6 +46,7 @@ int main(int argsc, char *argv[]) {
 
     printf("f 1 0x%x '%c' 0x%x\n", fp1.i, operation, fp2.i);
     printf("%a\n", result.f);
+    printf("(%f) %c (%f) = (%f)\n", fp1.f, operation, fp2.f, result.f);
 }
 
 float getRandomFloat()

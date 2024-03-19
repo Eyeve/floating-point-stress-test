@@ -21,24 +21,29 @@ for testNumber in range(N):
     with open("out.txt", "r") as f:
         test = f.readline().strip()
         expected = f.readline().strip()
+        decimal = f.readline().strip()
 
     system(f"./main.exe {test} > out.txt")
     test = test.replace("'", "", 2)
     with open("out.txt", "r") as f:
         actual = f.readline().strip()
 
-    # if (actual == "nan" or actual == "inf" or actual == "-nan" or actual == "-inf"):
-    #     input(actual)
-    
-    if sub("0+p", "p", actual) != sub("0+p", "p", expected):
+    if sub("0+p", "p", actual) != sub("0p", "0.p", expected):
         print()
-        print(f"=== test failed => | {testNumber}")
-        print(f" \=== expected ==> | {expected}")
-        print(f"  \== actual ====> | {actual}")
-        input(f"   \= test case => | {test}\n")
+        print(f"==== test failed => | {testNumber}")
+        print(f" \==== expected ==> | {expected}")
+        print(f"  \=== actual ====> | {actual}")
+        print(f"   \== test case => | {test}")
+        input(f"    \= decimal: {decimal}\n")
     else:
         if (testNumber % 100 == 0):
             print(f"\n======== ONE HUNDRED MORE TESTS ========\n")
         elif (testNumber % 10 == 0):
             i = testNumber % 3
             print("="*i + f"===> test passed - {testNumber}")
+    
+
+
+
+
+    
