@@ -26,8 +26,11 @@ for testNumber in range(N):
     test = test.replace("'", "", 2)
     with open("out.txt", "r") as f:
         actual = f.readline().strip()
-        
-    if sub("0+p", "p", actual) != expected:
+
+    # if (actual == "nan" or actual == "inf" or actual == "-nan" or actual == "-inf"):
+    #     input(actual)
+    
+    if sub("0+p", "p", actual) != sub("0+p", "p", expected):
         print()
         print(f"=== test failed => | {testNumber}")
         print(f" \=== expected ==> | {expected}")
@@ -35,12 +38,7 @@ for testNumber in range(N):
         input(f"   \= test case => | {test}\n")
     else:
         if (testNumber % 100 == 0):
-            print(f"\n======= ONE HUNDRED MORE TESTS =======\n")
+            print(f"\n======== ONE HUNDRED MORE TESTS ========\n")
         elif (testNumber % 10 == 0):
-            print("="*(testNumber%3) + f"===> test passed - {testNumber}")
-    
-
-
-
-
-    
+            i = testNumber % 3
+            print("="*i + f"===> test passed - {testNumber}")
