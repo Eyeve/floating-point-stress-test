@@ -2,8 +2,9 @@ from os import system
 from sys import argv
 from re import sub
 
-N = 15000
-OPERATIONS = ['*', '/', '-', '+']
+N = 20000
+OPERATIONS = ['+', '-', '*', '/']
+
 
 if (len(argv) > 1):
     OPERATIONS = []
@@ -13,8 +14,8 @@ if (len(argv) > 1):
             print(f"Invalid operation: {opeartion}")
             exit(1)
 
-system("clang main.c -o main.exe")
-system("clang tester.c -o tester.exe")
+system("clang -O2 main.c -o main.exe")
+system("clang -O2 tester.c -o tester.exe -lm")
 open("out.txt", "w")
 
 for operation in OPERATIONS:
